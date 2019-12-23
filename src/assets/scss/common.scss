@@ -1,0 +1,61 @@
+/**
+* 溢出省略号
+* @param {Number} 行数
+*/
+@mixin ellipsis($rowCount: 1) {
+  @if $rowCount <=1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $rowCount;
+    -webkit-box-orient: vertical;
+  }
+}
+
+
+/**
+* 等边三角形
+* @param {String} 尺寸
+* @param {Color} 颜色
+* @param {String} 方向
+*/
+@mixin triangle($size: 5px, $color: rgba(0, 0, 0, 0.6), $dir: bottom) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+
+  @if (bottom==$dir) {
+    border-width: $size $size 0 $size;
+    border-color: $color transparent transparent transparent;
+  } @else if (top==$dir) {
+    border-width: 0 $size $size $size;
+    border-color: transparent transparent $color transparent;
+  } @else if (right==$dir) {
+    border-width: $size 0 $size $size;
+    border-color: transparent transparent transparent $color;
+  } @else if (left==$dir) {
+    border-width: $size $size $size 0;
+    border-color: transparent $color transparent transparent;
+  }
+}
+
+/**
+* loading加载
+* @width {String} 宽高 
+*/
+@mixin loading-half-circle($width: 1em) {
+  display: inline-block;
+  height: $width;
+  width: $width;
+  border-radius: $width;
+  border-style: solid;
+  border-width: $width/10;
+  border-color: transparent currentColor transparent transparent;
+  animation: rotate 0.6s linear infinite;
+  vertical-align: middle;
+}
