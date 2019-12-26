@@ -13,6 +13,11 @@ const constantRoutes = [
     component: () => import(/* webpackChunkName: "router" */'@/view/table-render.vue'),
   },
   {
+    path: '/form',
+    name: 'form',
+    component: () => import(/* webpackChunkName: "router" */'@/components/form/form.vue'),
+  },
+  {
     path: '/slot',
     name: 'slot',
     component: () => import(/* webpackChunkName: "router" */'@/view/Slot.vue'),
