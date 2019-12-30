@@ -2,8 +2,8 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production' // 判断是否是生产环境
 const webpack = require('webpack')
-const path = require('path');
-function resolve (dir) {
+const path = require('path')
+function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
@@ -11,32 +11,32 @@ const cdn = [
   'https://cdn.bootcss.com/axios/0.19.0/axios.min.js'
 ]
 const externals = {
-  'axios':'axios'
+  'axios': 'axios'
 }
 module.exports = {
   publicPath: '/vue1/',
-  chainWebpack: (config)=>{
+  chainWebpack: (config) => {
     config.resolve.alias
-      .set('@', resolve('src'))  // 路径别名
+      .set('@', resolve('src')) // 路径别名
       .set('@mixins', resolve('src/mixins'))
-    if(IS_PRODUCTION) {   // 添加externals给全局
+    if (IS_PRODUCTION) { // 添加externals给全局
       config.plugin('html')
-      .tap(args => {
-        args[0].cdn = cdn
-        return args
-      })
-      .end()
+        .tap(args => {
+          args[0].cdn = cdn
+          return args
+        })
+        .end()
       config.externals(externals)
     }
-    // config            
+    // config
     //     .plugin('webpack-bundle-analyzer')
     //     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)   // 生成可视化依赖树
   },
   configureWebpack: {
     plugins: [
-      new webpack.DllReferencePlugin({  // 配置DllPlugin
+      new webpack.DllReferencePlugin({ // 配置DllPlugin
         context: process.cwd(),
-        manifest: require("./dll/vendor-manifest.json")
+        manifest: require('./dll/vendor-manifest.json')
       }),
       // 将 dll 注入到 生成的 html 模板中
       new AddAssetHtmlPlugin({
@@ -49,13 +49,22 @@ module.exports = {
       })
     ]
   },
-  productionSourceMap: IS_PRODUCTION ? false : true, // 生产环境是否需要js的sourceMap
+  productionSourceMap: !IS_PRODUCTION, // 生产环境是否需要js的sourceMap
   devServer: {
     open: true,
     host: '0.0.0.0',
     port: 8080,
     https: false,
     hotOnly: false,
+    proxy: {
+      '/api': {
+        target: 'http://203.207.224.108:2050/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   },
   css: {
     // 将组件内的 CSS 提取到一个单独的 CSS 文件 (只用在生产环境中)
@@ -68,15 +77,15 @@ module.exports = {
     // 为预处理器的 loader 传递自定义选项。比如传递给
     // sass-loader 时，使用 `{ sass: { ... } }`。
     loaderOptions: {
-        // sass: {
-        // // data: fs.readFileSync('src/assets/theme/index.scss', 'utf-8')
-        //     data:`@import "@/assets/scss/common.scss";`
-        // },
-        sass: {
-          prependData: `
+      // sass: {
+      // // data: fs.readFileSync('src/assets/theme/index.scss', 'utf-8')
+      //     data:`@import "@/assets/scss/common.scss";`
+      // },
+      sass: {
+        prependData: `
             @import "@/assets/scss/common.scss";
           `
-        },
-    },
+      }
+    }
   }
 }

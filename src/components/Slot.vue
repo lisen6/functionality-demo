@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <input :value="value" @input="changeValue($event.target.value)"/>
-    <p>{{name}}</p>
+    <input :value="value" @input="changeValue($event.target.value)">
+    <p>{{ name }}</p>
   </div>
 </template>
 
@@ -16,13 +16,13 @@ export default {
     }
   },
   inject: ['app'],
-  data () {
+  data() {
     return {
       user: {
         title: '测试title',
         name: '测试name'
       }
-    };
+    }
   },
   mounted() {
     console.log('provide传递的name是：', this.app)
@@ -31,15 +31,15 @@ export default {
       console.log(data)
     })
 
-    const com = findComponentUpward(this, 'Slot');
-    if(com) {
+    const com = findComponentUpward(this, 'Slot')
+    if (com) {
       console.log(com, 444)
     }
   },
-  methods:{
+  methods: {
     changeValue(value) {
-      this.$emit('input', value);
+      this.$emit('input', value)
     }
   }
-};
+}
 </script>

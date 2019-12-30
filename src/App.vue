@@ -2,12 +2,12 @@
   <div id="app">
     <el-container>
       <el-aside>
-        <sideBar :menuList="menuList"/>
+        <sideBar :menu-list="menuList" />
       </el-aside>
       <el-container class="conetent">
         <el-header><span>大众服务</span></el-header>
         <el-main>
-          <router-view/>
+          <router-view />
         </el-main>
       </el-container>
     </el-container>
@@ -17,7 +17,7 @@
 <script>
 import sideBar from '@/components/sideBar/sideBar.vue'
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     sideBar
   },
@@ -46,11 +46,6 @@ export default {
           ]
         },
         {
-          title: '组件Form表单',
-          path: '/form',
-          children: []
-        },
-        {
           title: '虚拟列表',
           path: '/VirtualList',
           children: []
@@ -59,17 +54,21 @@ export default {
           title: '插槽',
           path: '/Slot',
           children: []
-        },{
+        }, {
           title: '输入框',
           path: '/myInput',
           children: []
-        },{
+        }, {
           title: '自定义封装消息',
           path: '/alert',
           children: []
+        }, {
+          title: 'maptalks',
+          path: '/maptalks',
+          children: []
         }
       ]
-    };
+    }
   }
 }
 </script>

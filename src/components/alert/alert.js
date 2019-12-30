@@ -16,41 +16,41 @@ const MESSAGE = {
         }
       }
 
-      let VueMessage = Vue.extend({  // 创建一个构造器
-        render(h) {
-          let props = {
-            type,
-            text: msg,
-            show: this.show
-          }
-          return h(Alert, {props})
-        },
+      const VueMessage = Vue.extend({
         data() {
           return {
             show: false
           }
+        }, // 创建一个构造器
+        render(h) {
+          const props = {
+            type,
+            text: msg,
+            show: this.show
+          }
+          return h(Alert, { props })
         }
       })
 
-      const newMessage = new VueMessage();
-      let vm = newMessage.$mount()     // $mount 方法对组件进行了手动渲染
+      const newMessage = new VueMessage()
+      let vm = newMessage.$mount() // $mount 方法对组件进行了手动渲染
 
-      let el = vm.$el;  
-      document.body.appendChild(el);
+      const el = vm.$el
+      document.body.appendChild(el)
 
       vm.show = true
 
-      let t1 = setTimeout(() => {
+      const t1 = setTimeout(() => {
         clearTimeout(t1)
-        vm.show = false  //隐藏提示组件，此时会有300ms的动画效果，等动画效果过了再从body中移除dom
+        vm.show = false // 隐藏提示组件，此时会有300ms的动画效果，等动画效果过了再从body中移除dom
 
-        let t2 = setTimeout(() => {
+        const t2 = setTimeout(() => {
           clearTimeout(t2)
-          document.body.removeChild(el) //从body中移除dom
+          document.body.removeChild(el) // 从body中移除dom
           newMessage.$destroy()
           vm = null // 设置为null，好让js垃圾回收算法回收，释放内存
 
-          callBack && (typeof callBack === 'function') && callBack() 
+          callBack && (typeof callBack === 'function') && callBack()
         }, MESSAGE.animateTime)
       }, duration)
     }

@@ -15,7 +15,7 @@ export default {
     info() {
       this.$message.info({
         text: 'info 消息按钮(4s后隐藏)',
-        duration: 4000  // 可以自定义实现弹窗消失延迟时间
+        duration: 4000 // 可以自定义实现弹窗消失延迟时间
       }, () => {
         console.log('info 消息发送成功')
       })
@@ -23,7 +23,7 @@ export default {
     success() {
       this.$message.success({
         text: 'info 消息按钮(默认3s后隐藏)',
-        duration: 3000  // 可以自定义实现弹窗消失延迟时间
+        duration: 3000 // 可以自定义实现弹窗消失延迟时间
       }, () => {
         console.log('success 消息发送成功')
       })
@@ -31,7 +31,7 @@ export default {
     error() {
       this.$message.error({
         text: 'error 消息按钮(2s后隐藏)',
-        duration: 2000  // 可以自定义实现弹窗消失延迟时间
+        duration: 2000 // 可以自定义实现弹窗消失延迟时间
       }, () => {
         console.log('error 消息发送成功')
       })
@@ -39,7 +39,7 @@ export default {
     warning() {
       this.$message.warning({
         text: 'warning 消息按钮((1s后隐藏))',
-        duration: 1000  // 可以自定义实现弹窗消失延迟时间
+        duration: 1000 // 可以自定义实现弹窗消失延迟时间
       }, () => {
         console.log('warning 消息发送成功')
       })

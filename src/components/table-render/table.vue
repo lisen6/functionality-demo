@@ -9,7 +9,7 @@
       <tr v-for="(row, index) in data" :key="index">
         <td v-for="(col, index) in columns" :key="index">
           <template v-if="'render' in col">
-            <Render :row="row" :column="col" :index="rowIndex" :render="col.render"></Render>
+            <Render :row="row" :column="col" :index="rowIndex" :render="col.render" />
           </template>
           <template v-else>{{ row[col.key] }}</template>
         </td>
@@ -26,14 +26,14 @@ export default {
   props: {
     columns: {
       type: Array,
-      default () {
-        return [];
+      default() {
+        return []
       }
     },
     data: {
       type: Array,
-      default () {
-        return [];
+      default() {
+        return []
       }
     }
   }

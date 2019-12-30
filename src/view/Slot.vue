@@ -1,16 +1,16 @@
 <template>
   <div class="container">
-    <SlotView v-model="demo"/><br/>
+    <SlotView v-model="demo" /><br>
     <el-button @click="handleClick">触发事件</el-button>
   </div>
 </template>
 
 <script>
 import SlotView from '@/components/Slot.vue'
-import Emitter  from '@mixins/emitter.js'
+import Emitter from '@mixins/emitter.js'
 import { findComponentDownward } from '@/utils/assist.js'
 export default {
-  name: "Slot",
+  name: 'Slot',
   components: {
     SlotView
   },
@@ -22,7 +22,7 @@ export default {
   },
   mounted() {
     const comA = findComponentDownward(this, 'SlotChild')
-    if(comA) {
+    if (comA) {
       console.log(comA, 555)
     }
     console.log(this.$el, 777)

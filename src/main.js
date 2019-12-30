@@ -6,7 +6,7 @@ import '@/assets/css/reset.css'
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElementUI);
+Vue.use(ElementUI)
 
 import Alert from '@/components/alert/alert.js'
 Vue.use(Alert)

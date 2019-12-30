@@ -1,24 +1,24 @@
 <template>
   <div class="content_contain">
-    <div class="contentBox" contenteditable="true" ref="contentBox" placeholder="请输入内容..."></div><br/>
+    <div ref="contentBox" class="contentBox" contenteditable="true" placeholder="请输入内容..." /><br>
     <el-button @click="send">点击查看内容</el-button>
-    <p class="text_flow">{{text}}</p>
+    <p class="text_flow">{{ text }}</p>
   </div>
 </template>
 
 <script>
 export default {
-    name: "myInput",
-    data() {
-        return {
-          text: ''
-        }
-    },
-    methods: {
-      send() {
-        this.text = this.$refs.contentBox.textContent
-      }
+  name: 'MyInput',
+  data() {
+    return {
+      text: ''
     }
+  },
+  methods: {
+    send() {
+      this.text = this.$refs.contentBox.textContent
+    }
+  }
 }
 </script>
 
@@ -32,7 +32,7 @@ export default {
     max-height:300px;
     overflow: auto;
     font-size: 14px;
-    outline: none; 
+    outline: none;
   }
   .contentBox:empty:before {
     content: attr(placeholder);

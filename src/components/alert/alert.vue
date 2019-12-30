@@ -1,44 +1,44 @@
 <template>
   <transition name="fade">
-    <div class="message" :class="type" v-show="show">
-      <i class="icon"></i>
-      <span class="text">{{text}}</span>
+    <div v-show="show" class="message" :class="type">
+      <i class="icon" />
+      <span class="text">{{ text }}</span>
     </div>
   </transition>
 </template>
 <script>
 
-  export default {
-    name: 'alert',
-    props: {
-      type: {
-        type: String,
-        default: 'info',
-        validator: val => ['info', 'success', 'warning', 'error'].includes(val)
-        //['info', 'success', 'warning', 'error'] 表示type只接收这四个字符串作为参数传入message组件
-      },
-      text: {
-        type: String,
-        default: ''
-      },
-      show: {
-        type: Boolean,
-        default: false
-      }
+export default {
+  name: 'Alert',
+  props: {
+    type: {
+      type: String,
+      default: 'info',
+      validator: val => ['info', 'success', 'warning', 'error'].includes(val)
+      // ['info', 'success', 'warning', 'error'] 表示type只接收这四个字符串作为参数传入message组件
+    },
+    text: {
+      type: String,
+      default: ''
+    },
+    show: {
+      type: Boolean,
+      default: false
     }
   }
+}
 </script>
 <style lang="scss">
   .fade-enter-active,
   .fade-leave-active {
     transition: opacity .3s
   }
-     
+
   .fade-enter,
   .fade-leave-to {
     opacity: 0
   }
-    
+
   .message {
     position:fixed;
     top: 40px;
@@ -66,5 +66,5 @@
       color: #E6A23C;
     }
   }
-    
+
 </style>
