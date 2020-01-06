@@ -63,6 +63,10 @@ export default {
           path: '/alert',
           children: []
         }, {
+          title: '放大镜',
+          path: '/magnifier',
+          children: []
+        }, {
           title: 'maptalks',
           path: '/maptalks',
           children: []

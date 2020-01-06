@@ -7,7 +7,7 @@
     </thead>
     <tbody>
       <tr v-for="(row, index) in data" :key="index">
-        <td v-for="(col, index) in columns" :key="index">
+        <td v-for="(col, index1) in columns" :key="index1">
           <template v-if="'render' in col">
             <Render :row="row" :column="col" :index="rowIndex" :render="col.render" />
           </template>

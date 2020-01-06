@@ -34,6 +34,10 @@ const constantRoutes = [
     name: 'alert',
     component: () => import(/* webpackChunkName: "router" */'@/view/alert.vue')
   }, {
+    path: '/magnifier',
+    name: 'magnifier',
+    component: () => import(/* webpackChunkName: "router" */'@/view/magnifier/magnifier.vue')
+  }, {
     path: '/maptalks',
     name: 'maptalks',
     component: () => import(/* webpackChunkName: "router" */'@/view/maptalks.vue')
