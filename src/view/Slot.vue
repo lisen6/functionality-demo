@@ -17,7 +17,7 @@ export default {
   mixins: [Emitter],
   data() {
     return {
-      demo: 123
+      demo: 12344444
     }
   },
   mounted() {
