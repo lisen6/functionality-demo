@@ -1,23 +1,40 @@
 <template>
   <div class="container">
     <SlotView v-model="demo" /><br>
-    <el-button @click="handleClick">触发事件</el-button>
+    <el-button @click="handleClick">触发事件</el-button><br>
+    <checkBoxGroup v-model="arr">
+      <checkBox label="option1">选项 1</checkBox>
+      <checkBox label="option2">选项 2</checkBox>
+      <checkBox label="option3">选项 3</checkBox>
+      <checkBox label="option4">选项 4</checkBox>
+    </checkBoxGroup>
+    <div class="container1 box">
+      <div class="right-area">123</div>
+    </div>
   </div>
 </template>
 
 <script>
 import SlotView from '@/components/Slot.vue'
+import checkBoxGroup from '@/components/checkBox/checkBox-group.vue'
+import checkBox from '@/components/checkBox/checkBox.vue'
 import Emitter from '@mixins/emitter.js'
 import { findComponentDownward } from '@/utils/assist.js'
 export default {
   name: 'Slot',
   components: {
-    SlotView
+    SlotView,
+    checkBox,
+    checkBoxGroup
   },
   mixins: [Emitter],
   data() {
     return {
-      demo: 12344444
+      demo: 1235,
+      checked: true,
+      trueValue: 1,
+      falseValue: 0,
+      arr: ['option1', 'option3']
     }
   },
   mounted() {
@@ -36,4 +53,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container1{
+  width: 100px;
+  height: 100px;
+  &.box {
+    background-color : lightcoral
+  }
+}
+
 </style>
