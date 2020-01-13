@@ -11,8 +11,6 @@ Vue.use(ElementUI)
 import Alert from '@/components/alert/alert.js'
 Vue.use(Alert)
 
-import 'maptalks/dist/maptalks.css'
-
 Vue.config.productionTip = false
 
 new Vue({
