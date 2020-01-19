@@ -16,7 +16,11 @@ const externals = {
 module.exports = {
   publicPath: '/vue1/',
   chainWebpack: (config) => {
-    config.resolve.alias
+    config.resolve
+      .extensions
+      .merge(['.js', '.vue']) // 文件拓展名
+      .end()
+      .alias
       .set('@', resolve('src')) // 路径别名
       .set('@mixins', resolve('src/mixins'))
     if (IS_PRODUCTION) { // 添加externals给全局
@@ -58,7 +62,7 @@ module.exports = {
     hotOnly: false,
     proxy: {
       '/api': {
-        target: 'http://203.207.224.108:2050/',
+        target: 'http://www.baidu.com/',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

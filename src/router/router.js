@@ -10,7 +10,7 @@ const constantRoutes = [
   {
     path: '/my-table',
     name: 'my-table',
-    component: () => import(/* webpackChunkName: "router" */'@/view/table-render.vue')
+    component: () => import(/* webpackChunkName: "router" */'@/view/table/table-render.vue')
   },
   {
     path: '/slot',
@@ -24,11 +24,11 @@ const constantRoutes = [
   }, {
     path: '/table',
     name: 'table',
-    component: () => import(/* webpackChunkName: "router" */'@/view/table.vue')
+    component: () => import(/* webpackChunkName: "router" */'@/view/table/table.vue')
   }, {
-    path: '/myInput',
-    name: 'myInput',
-    component: () => import(/* webpackChunkName: "router" */'@/view/myInput.vue')
+    path: '/drag',
+    name: 'drag',
+    component: () => import(/* webpackChunkName: "router" */'@/view/drag.vue')
   }, {
     path: '/alert',
     name: 'alert',

@@ -8,9 +8,6 @@
       <checkBox label="option3">选项 3</checkBox>
       <checkBox label="option4">选项 4</checkBox>
     </checkBoxGroup>
-    <div class="container1 box">
-      <div class="right-area">123</div>
-    </div>
   </div>
 </template>
 
@@ -53,12 +50,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container1{
-  width: 100px;
-  height: 100px;
-  &.box {
-    background-color : lightcoral
-  }
-}
-
 </style>

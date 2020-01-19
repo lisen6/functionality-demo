@@ -55,8 +55,8 @@ export default {
           path: '/Slot',
           children: []
         }, {
-          title: '输入框',
-          path: '/myInput',
+          title: '拖拽卡片',
+          path: '/drag',
           children: []
         }, {
           title: '自定义封装消息',
