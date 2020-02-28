@@ -35,14 +35,15 @@ export default {
     }
   },
   mounted() {
+    // 向下找到最近的指定组件——findComponentDownward
     const comA = findComponentDownward(this, 'SlotChild')
     if (comA) {
       console.log(comA, 555)
     }
-    console.log(this.$el, 777)
   },
   methods: {
     handleClick() {
+      // 向下派发事件
       this.broadcast('SlotChild', 'test', 'hello Vue.js')
     }
   }
