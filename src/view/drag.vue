@@ -23,7 +23,6 @@ export default {
   },
   mounted() {
     this.arr = new Array(9).fill(null)
-    // this.dragInit();
   },
   methods: {
   }

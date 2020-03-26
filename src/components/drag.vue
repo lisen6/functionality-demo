@@ -50,6 +50,7 @@ export default {
         ap.insertBefore(b, an)
       }
     },
+    // 开始拖拽
     handle_dragstart(ev) {
       ev.dataTransfer.setData('dragDom', ev.target.id)
     },
@@ -60,9 +61,11 @@ export default {
       this.$el.style.opacity = '1'
       console.log('dragend-在拖动操作完成时触发')
     },
+    // 放到何处
     allowDrop(ev) {
       ev.preventDefault()
     },
+    // 进行放置
     handle_ondrop(event) {
       const data = event.dataTransfer.getData('dragDom')
       // console.log(document.getElementById(data), event.target, '这两个dom')
