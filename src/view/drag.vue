@@ -22,6 +22,7 @@ export default {
     }
   },
   mounted() {
+    // 创建数组。内容为null
     this.arr = new Array(9).fill(null)
   },
   methods: {
