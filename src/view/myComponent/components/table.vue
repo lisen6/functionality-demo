@@ -20,15 +20,12 @@
 </template>
 
 <script>
-import tablePot from '@/components/Table'
+import tablePot from '@/components/Table/tablePot'
 // import axios from 'axios'
 export default {
   name: 'Table',
   components: {
     tablePot
-  },
-  props: {
-    //
   },
   data() {
     return {

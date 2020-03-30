@@ -5,38 +5,46 @@ Vue.use(Router)
 const constantRoutes = [
   {
     path: '/',
-    redirect: '/table'
+    redirect: '/my-table'
   },
   {
     path: '/my-table',
     name: 'my-table',
-    component: () => import(/* webpackChunkName: "router" */'@/view/table/table-render.vue')
+    component: () => import(/* webpackChunkName: "router" */'@/view/table/table-render')
   },
   {
-    path: '/slot',
-    name: 'slot',
-    component: () => import(/* webpackChunkName: "router" */'@/view/Slot.vue')
-  },
-  {
-    path: '/VirtualList',
-    name: 'VirtualList',
-    component: () => import(/* webpackChunkName: "router" */'@/view/VirtualList.vue')
-  }, {
-    path: '/table',
-    name: 'table',
-    component: () => import(/* webpackChunkName: "router" */'@/view/table/table.vue')
-  }, {
-    path: '/drag',
-    name: 'drag',
-    component: () => import(/* webpackChunkName: "router" */'@/view/drag.vue')
-  }, {
-    path: '/alert',
-    name: 'alert',
-    component: () => import(/* webpackChunkName: "router" */'@/view/alert.vue')
-  }, {
-    path: '/magnifier',
-    name: 'magnifier',
-    component: () => import(/* webpackChunkName: "router" */'@/view/magnifier/magnifier.vue')
+    path: '/component',
+    name: 'component',
+    component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/index'),
+    children: [
+      {
+        path: 'table',
+        name: 'table',
+        component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/table')
+      },
+      {
+        path: 'virtualList',
+        name: 'virtualList',
+        component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/virtualList')
+      },
+      {
+        path: 'slot',
+        name: 'slot',
+        component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/slot')
+      }, {
+        path: 'drag',
+        name: 'drag',
+        component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/drag')
+      }, {
+        path: 'alert',
+        name: 'alert',
+        component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/alert')
+      }, {
+        path: 'magnifier',
+        name: 'magnifier',
+        component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/magnifier')
+      }
+    ]
   }
 ]
 
@@ -47,8 +55,8 @@ Router.prototype.push = function push(location) {
 }
 
 const router = new Router({
-  mode: 'history',
-  base: 'vue1',
+  mode: 'hash',
+  // base: '/vue1',
   routes: constantRoutes,
   scrollBehavior: () => ({ y: 0 })
 })

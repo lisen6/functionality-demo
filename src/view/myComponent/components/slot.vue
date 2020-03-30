@@ -13,8 +13,8 @@
 
 <script>
 import SlotView from '@/components/Slot.vue'
-import checkBoxGroup from '@/components/checkBox/checkBox-group.vue'
-import checkBox from '@/components/checkBox/checkBox.vue'
+import checkBoxGroup from '@/components/CheckBox/checkBox-group.vue'
+import checkBox from '@/components/CheckBox/checkBox.vue'
 import Emitter from '@mixins/emitter.js'
 import { findComponentDownward } from '@/utils/assist.js'
 export default {

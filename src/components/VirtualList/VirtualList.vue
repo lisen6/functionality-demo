@@ -55,7 +55,7 @@ export default {
     },
     // 获取真实显示列表数据
     visibleData() {
-      return this.listData.slice(this.start, Math.min(this.end, this.listData.length))
+      return this.listData.slice(this.start, Math.min(this.end, this.listData.length)) // this.listData.length---滚动到列表最后几个的时候。
     }
   },
   mounted() {
@@ -71,7 +71,12 @@ export default {
       this.start = Math.floor(scrollTop / this.itemSize)
       // 此时的结束索引
       this.end = this.start + this.visibleCount
-      // 此时的偏移量
+      // 此时的偏移量(滚动的时候最上面的dom元素一直保持显示全部内容)
+
+      // 比如假设每个list-Item高度50px  列表总长度10000px
+      // 假设滚动条滚动了110px。那么应该渲染的是从第三个元素开始
+      // 有两个元素划过去了
+      // 但是为了保证从第三个元素刚好在可视区域顶部, 得把10px的偏移量补上
       this.startOffset = scrollTop - (scrollTop % this.itemSize)
     }
   }

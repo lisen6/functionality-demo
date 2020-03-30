@@ -8,7 +8,7 @@
 export default {
   name: 'Magnifier',
   components: {
-    magnifier: () => import('@/components/magnifier/magnifier')
+    magnifier: () => import('@/components/Magnifier/magnifier')
   },
   props: {
     //

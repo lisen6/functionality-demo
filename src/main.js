@@ -8,7 +8,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 
-import Alert from '@/components/alert/alert.js'
+import Alert from '@/components/Alert/alert.js'
 Vue.use(Alert)
 
 Vue.config.productionTip = false

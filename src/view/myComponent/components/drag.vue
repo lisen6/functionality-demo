@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import dragAndDrop from '@/components/drag'
+import dragAndDrop from '@/components/Drag/drag'
 export default {
   components: {
     dragAndDrop

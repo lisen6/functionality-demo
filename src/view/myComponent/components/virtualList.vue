@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import VirtualList from '@/components/VirtualList.vue'
+import VirtualList from '@/components/VirtualList/VirtualList.vue'
 const d = []
 for (let i = 0; i < 1000; i++) {
   d.push({ id: i, value: i })

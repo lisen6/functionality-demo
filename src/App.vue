@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import sideBar from '@/components/sideBar/sideBar.vue'
+import sideBar from '@/components/SideBar/sideBar.vue'
 export default {
   name: 'App',
   components: {
@@ -30,42 +30,48 @@ export default {
     return {
       menuList: [
         {
-          title: '表格封装',
+          title: '自定义表格',
           path: '/table',
           children: [
             {
-              title: 'element表格封装',
-              path: '/table',
-              children: []
-            },
-            {
-              title: '自定义表格封装',
+              title: 'render自定义表格封装',
               path: '/my-table',
               children: []
             }
           ]
         },
         {
-          title: '虚拟列表',
-          path: '/VirtualList',
-          children: []
-        },
-        {
-          title: '插槽',
-          path: '/Slot',
-          children: []
-        }, {
-          title: '拖拽卡片',
-          path: '/drag',
-          children: []
-        }, {
-          title: '自定义封装消息',
-          path: '/alert',
-          children: []
-        }, {
-          title: '放大镜',
-          path: '/magnifier',
-          children: []
+          title: '组件封装',
+          path: '/component',
+          children: [
+            {
+              title: 'element表格封装',
+              path: '/component/table',
+              children: []
+            },
+            {
+              title: '虚拟列表',
+              path: '/component/virtualList',
+              children: []
+            },
+            {
+              title: '插槽',
+              path: '/component/slot',
+              children: []
+            }, {
+              title: '拖拽卡片',
+              path: '/component/drag',
+              children: []
+            }, {
+              title: '自定义封装消息',
+              path: '/component/alert',
+              children: []
+            }, {
+              title: '放大镜',
+              path: '/component/magnifier',
+              children: []
+            }
+          ]
         }
       ]
     }

@@ -13,8 +13,9 @@ const cdn = [
 const externals = {
   'axios': 'axios'
 }
+
 module.exports = {
-  publicPath: '/vue1/',
+  publicPath: './',
   chainWebpack: (config) => {
     config.resolve
       .extensions
