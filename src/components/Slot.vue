@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import { findComponentUpward } from '@/utils/assist.js'
 export default {
   name: 'SlotChild',
   props: {
@@ -30,11 +29,6 @@ export default {
     this.$on('test', (data) => {
       console.log(data)
     })
-
-    const com = findComponentUpward(this, 'Slot')
-    if (com) {
-      console.log(com, 444)
-    }
   },
   methods: {
     changeValue(value) {

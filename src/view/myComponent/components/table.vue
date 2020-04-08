@@ -83,7 +83,6 @@ export default {
       console.log('reciveRocket success')
     },
     startUpRocket(data) {
-      console.log('startUpRocket', data)
 
       // axios.get('http://localhost:80/api/search/data?userId=123').then(data => {
       //   console.log(data)
