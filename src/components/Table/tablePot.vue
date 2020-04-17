@@ -49,6 +49,10 @@ export default {
       //
     }
   },
+  mounted() {
+    const upRocket = this.$listeners.upRocket
+    upRocket()
+  },
   methods: {
     rowChange({ rowIndex }) {
       if (rowIndex === 0) {
