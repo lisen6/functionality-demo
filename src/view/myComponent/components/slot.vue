@@ -2,27 +2,27 @@
   <div class="container">
     <SlotView v-model="demo" /><br>
     <el-button @click="handleClick">触发事件</el-button><br>
-    <checkBoxGroup v-model="arr">
+    <!-- <checkBoxGroup v-model="arr">
       <checkBox label="option1">选项 1</checkBox>
       <checkBox label="option2">选项 2</checkBox>
       <checkBox label="option3">选项 3</checkBox>
       <checkBox label="option4">选项 4</checkBox>
-    </checkBoxGroup>
+    </checkBoxGroup> -->
   </div>
 </template>
 
 <script>
 import SlotView from '@/components/Slot.vue'
-import checkBoxGroup from '@/components/CheckBox/checkBox-group.vue'
-import checkBox from '@/components/CheckBox/checkBox.vue'
 import Emitter from '@mixins/emitter.js'
 import { findComponentDownward } from '@/utils/assist.js'
+// import checkBoxGroup from '@/components/CheckBox/checkBox-group.vue'
+// import checkBox from '@/components/CheckBox/checkBox.vue'
 export default {
   name: 'Slot',
   components: {
-    SlotView,
-    checkBox,
-    checkBoxGroup
+    SlotView
+    // checkBox,
+    // checkBoxGroup
   },
   mixins: [Emitter],
   data() {

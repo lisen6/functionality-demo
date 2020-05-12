@@ -55,7 +55,7 @@ const MESSAGE = {
       }, duration)
     }
 
-    Vue.prototype.$message = {
+    Vue.prototype.$msg = {
       info(text, callBack) {
         if (!text) return
         msg('info', text, callBack)

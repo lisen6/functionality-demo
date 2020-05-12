@@ -43,6 +43,10 @@ const constantRoutes = [
         path: 'magnifier',
         name: 'magnifier',
         component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/magnifier')
+      }, {
+        path: 'myTree',
+        name: 'myTree',
+        component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/myTree')
       }
     ]
   }

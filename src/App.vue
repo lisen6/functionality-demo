@@ -70,6 +70,10 @@ export default {
               title: '放大镜',
               path: '/component/magnifier',
               children: []
+            }, {
+              title: '二次封装tree组件',
+              path: '/component/myTree',
+              children: []
             }
           ]
         }
