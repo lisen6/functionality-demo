@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <SlotView v-model="demo" /><br>
-    <el-button @click="handleClick">触发事件</el-button><br>
+    <el-button @click="handleClick">触发事件1</el-button><br>
     <checkBoxGroup v-model="arr">
       <checkBox label="option1">选项 1</checkBox>
       <checkBox label="option2">选项 2</checkBox>

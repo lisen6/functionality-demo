@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <input :value="value" @input="changeValue($event.target.value)">
-    <p>{{ name }}</p>
+    <p>{{ user.name }}</p>
   </div>
 </template>
 

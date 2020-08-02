@@ -70,6 +70,10 @@ export default {
               title: '放大镜',
               path: '/component/magnifier',
               children: []
+            }, {
+              title: '日历组件',
+              path: '/component/DatePicker',
+              children: []
             }
           ]
         }

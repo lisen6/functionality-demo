@@ -43,6 +43,10 @@ const constantRoutes = [
         path: 'magnifier',
         name: 'magnifier',
         component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/magnifier')
+      }, {
+        path: 'datePicker',
+        name: 'datePicker',
+        component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/datePicker')
       }
     ]
   }

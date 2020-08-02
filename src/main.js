@@ -4,9 +4,14 @@ import App from './App.vue'
 import router from './router/router'
 import '@/assets/css/reset.css'
 
+import './icons' // icon
+
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
+
+import plugins from './components/common/index'
+Vue.use(plugins)
 
 import Alert from '@/components/Alert/alert.js'
 Vue.use(Alert)
