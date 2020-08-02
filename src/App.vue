@@ -74,6 +74,10 @@ export default {
               title: '日历组件',
               path: '/component/DatePicker',
               children: []
+            }, {
+              title: '二次封装tree组件',
+              path: '/component/myTree',
+              children: []
             }
           ]
         }

@@ -80,10 +80,9 @@ export default {
   },
   methods: {
     reciveRocket() {
-      console.log('reciveRocket success')
+      console.log('我是父组件, 传给子组件的函数触发了')
     },
     startUpRocket(data) {
-      console.log('startUpRocket', data)
 
       // axios.get('http://localhost:80/api/search/data?userId=123').then(data => {
       //   console.log(data)

@@ -1,8 +1,8 @@
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
-
-const IS_PRODUCTION = process.env.NODE_ENV === 'production' // 判断是否是生产环境
 const webpack = require('webpack')
 const path = require('path')
+
+const IS_PRODUCTION = process.env.NODE_ENV === 'production' // 判断是否是生产环境
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
@@ -16,14 +16,9 @@ const externals = {
 
 module.exports = {
   publicPath: './',
+  productionSourceMap: !IS_PRODUCTION, // 生产环境是否需要js的sourceMap
+  // filenameHashing: false, // 打包出来的文件没有hash值。不会缓存（适用于测试环境）
   chainWebpack: (config) => {
-    config.resolve
-      .extensions
-      .merge(['.js', '.vue']) // 文件拓展名
-      .end()
-      .alias
-      .set('@', resolve('src')) // 路径别名
-      .set('@mixins', resolve('src/mixins'))
     if (IS_PRODUCTION) { // 添加externals给全局
       config.plugin('html')
         .tap(args => {
@@ -33,7 +28,6 @@ module.exports = {
         .end()
       config.externals(externals)
     }
-
     // set svg-sprite-loader
     config.module
       .rule('svg')
@@ -50,12 +44,30 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
-
     // config
     //     .plugin('webpack-bundle-analyzer')
     //     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)   // 生成可视化依赖树
   },
   configureWebpack: {
+    resolve: {
+      extensions: ['.js', '.vue', '.json'],
+      alias: {
+        '@': resolve('src'),
+        '@mixins': resolve('src/mixins')
+      }
+    },
+    optimization: {
+      runtimeChunk: {
+        name: entrypoint => `runtime~${entrypoint.name}`
+      },
+      splitChunks: { // 模块分包打包
+        minChunks: 2,
+        minSize: 20000,
+        maxAsyncRequests: 20,
+        maxInitialRequests: 30,
+        name: false
+      }
+    },
     plugins: [
       new webpack.DllReferencePlugin({ // 配置DllPlugin
         context: process.cwd(),
@@ -72,10 +84,9 @@ module.exports = {
       })
     ]
   },
-  productionSourceMap: !IS_PRODUCTION, // 生产环境是否需要js的sourceMap
   devServer: {
     open: true,
-    host: '0.0.0.0',
+    host: '0.0.0.0', // 用于手机跟项目同一ip下可手机调试
     port: 8181,
     https: false,
     hotOnly: false,

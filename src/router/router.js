@@ -47,6 +47,10 @@ const constantRoutes = [
         path: 'datePicker',
         name: 'datePicker',
         component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/datePicker')
+      }, {
+        path: 'myTree',
+        name: 'myTree',
+        component: () => import(/* webpackChunkName: "router" */'@/view/myComponent/components/myTree')
       }
     ]
   }

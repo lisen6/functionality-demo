@@ -4,7 +4,7 @@ import App from './App.vue'
 import router from './router/router'
 import '@/assets/css/reset.css'
 
-import './icons' // icon
+import './icons' // 引入svg
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

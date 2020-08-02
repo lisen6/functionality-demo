@@ -49,14 +49,15 @@ export default {
       //
     }
   },
+  mounted() {
+    const upRocket = this.$listeners.upRocket
+    upRocket()
+  },
   methods: {
     rowChange({ rowIndex }) {
       if (rowIndex === 0) {
         return 'background:rgba(242,242,242,1);'
       }
-    },
-    getSlots() {
-      console.log(this.$slots.default)
     }
   }
 }
