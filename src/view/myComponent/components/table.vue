@@ -1,5 +1,6 @@
 <template>
   <div class="table_contain">
+    <span class="icon iconfont">&#xe640;</span>
     <tablePot
       ref="tablePot"
       :columns="columns"

@@ -18,6 +18,8 @@ module.exports = {
   publicPath: './',
   productionSourceMap: !IS_PRODUCTION, // 生产环境是否需要js的sourceMap
   // filenameHashing: false, // 打包出来的文件没有hash值。不会缓存（适用于测试环境）
+
+  // 获取webpack配置。并且再增添一些自己的逻辑
   chainWebpack: (config) => {
     if (IS_PRODUCTION) { // 添加externals给全局
       config.plugin('html')
